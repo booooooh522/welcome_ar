@@ -21,20 +21,39 @@
         <a-asset-item id="apple" src="./apple.glb"></a-asset-item>
       </a-assets>
 	<a-assets>
-        <img id="logo" src="./logo_trans.gif">
+        <img id="logo" src="./logoAR.gif">
       </a-assets>
+        <a-assets>
+            <img id="jumpA" src="./jumpA.png">
+        </a-assets>
+        <a-assets>
+            <img id="jumpB" src="./jumpB.png">
+        </a-assets>
+        <a-assets>
+            <img id="bird" src="./bird2.png">
+        </a-assets>
 
       <!-- マーカーの.pattファイルを読み込む -->
       <a-marker type="pattern" url="./pattern-qr.patt">
         <!-- 3Dモデルを呼び出す -->
         
-	<a-entity
-              geometry="primitive: plane;"
-              material="shader:gif; src:#logo;
-              color:white;
-              opacity:1"
-              rotation="-90 0 0">
-   	</a-entity>
+	<a-entity geometry="primitive: plane;width: 2.5; height: 2.5"
+                      material="shader:gif; src:#logo;color:white;opacity:1"
+                      rotation="-90 0 0"
+                      position="0 0 0">
+            </a-entity>
+            <a-image src="#jumpA" rotation="-90 0 0" height="1.75" width="1.25" position="-0.7 1 0"
+                     animation="property: position; from: -0.7 1 0.5; to: -0.7 1 -0.5; loop: true; dur: 3000; easing: easeInOutQuad; dir: alternate"
+                     >
+            </a-image>
+            <a-image src="#jumpB" rotation="-90 0 0" height="1.6" width="0.8" position="0.8 1 0"
+                     animation="property: position; from: 0.8 1 0.5; to: 0.8 1 -0.5; loop: true; dur: 3000; easing: easeInOutQuad; dir: alternate"
+                     >
+            </a-image>
+            <a-image src="#bird" rotation="-90 0 0" height="2.4" width="0.6" position="0 1.5 0"
+                     animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 10000; easing: linear"
+                     >
+            </a-image>
       </a-marker>
 
       <!-- カメラを追加 -->
